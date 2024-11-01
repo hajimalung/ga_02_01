@@ -1,5 +1,5 @@
-# this runs all the jobs in parellel
-name: first
+# this runs jobs in sequence
+name: second
 
 on: push
 
@@ -13,6 +13,7 @@ jobs:
       - name: step 2
         run: env | sort
   job2:
+    needs: job1
     name: Second-Job
     runs-on: windows-latest
     steps:
